@@ -1,32 +1,52 @@
 let img1;
 let img2;
 
-class Player {
-    constructor() {
-      //
-      this.xPlayer1 = 300;
-      this.yPlayer1 = height - 65;
-      this.xPlayer2 = 1100;
-      this.yPlayer2 = height - 75;
-    }
+class Player1 {
+  constructor(x1, y1) {
+    //
+    this.x1 = x1;
+    this.y1 = y1;
 
-    preload() {
-      this.img1 = loadImage("assets/pavi.png");
-      this.img2 = loadImage("assets/nitsa.png");
-    }
+  }
 
-    setup() {
-      
-      // this.originalY = this.y;
-      // this.width = this.img.width;
-      // this.height = this.img.height;
-    }
+  preload() {
+    this.img1 = loadImage("assets/pavi.png");
+  }
 
-    draw() {
-        
-      image(this.img1, this.xPlayer1, this.yPlayer1, this.width, this.height);
-      image(this.img2, this.xPlayer2, this.yPlayer2,this.width, this.height);
-    }
+  setup() {
+    // this.originalY = this.y;
+    // this.width = this.img.width;
+    // this.height = this.img.height;
+  }
 
-
+  draw() {
+    image(this.img1, this.x1, this.y1, this.width - 10, this.height - 10);
+  }
 }
+
+class Player2 {
+  constructor(x2, y2) {
+    //
+    this.x2 = x2;
+    this.y2 = y2;
+   
+    // this.number = number;
+  }
+
+  preload() {
+    this.img2 = loadImage("assets/nitsa.png");
+  }
+
+  setup() {
+    // this.originalY = this.y;
+    // this.width = this.img.width;
+    // this.height = this.img.height;
+  }
+
+  draw() {
+    image(this.img2, this.x2, this.y2, this.width - 20, this.height - 20);
+  }
+}
+
+
+

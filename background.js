@@ -24,9 +24,9 @@ class Background {
     image(this.bgTown, this.xTown, 0, 700, 190);
     image(this.bgTown, this.xTown + 650, 0, 900, 190);
 
-    image(this.bgLanes, this.xLanes, 180, width, 200);
-    image(this.bgLanes, this.xLanes, 360, width, 200);
-    image(this.bgLanes, this.xLanes, 520, width, 200);
+    for (let i = 180; i < 700; i += 180) {
+      image(this.bgLanes, this.xLanes, i, width, 200);
+    }
 
     image(this.bgBottom, this.xBottom, 550, 600, 260);
     image(this.bgBottom, this.xBottom + 400, 550, 500, 260);
