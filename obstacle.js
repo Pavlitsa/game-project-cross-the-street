@@ -11,8 +11,6 @@ class Ghost {
   draw() {
     image(this.img, this.x, this.y, this.width, this.height);
     this.x += this.speed;
-
-    // image(this.img, this.x, this.y, this.width, this.height);
-    // this.x += this.speed;
   }
 }
+    

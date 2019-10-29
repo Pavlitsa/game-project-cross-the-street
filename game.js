@@ -4,14 +4,6 @@ class Game {
     this.background = new Background();
     this.player1 = new Player1(300, height - 65);
     this.player2 = new Player2(1100, height - 75);
-    // this.ghost = new Ghost(randomGhost);
-    // this.ghost1 = new Ghost1(width - 70, height - 580);
-    // this.ghost2 = new Ghost2(width - 70, height - 400);
-    // this.ghost3 = new Ghost3(width - 70, height - 220);
-    // this.ghost4 = new Ghost4(0, height - 490);
-    // this.ghost5 = new Ghost5(0, height - 330);
-    // this.ghost6 = new Ghost6(0, height - 160);
-
     this.ghosts = [];
   }
 
@@ -20,13 +12,6 @@ class Game {
     this.background.preload();
     this.player1.preload();
     this.player2.preload();
-    // this.ghost.preload(randomGhost);
-    // this.ghost1.preload();
-    // this.ghost2.preload();
-    // this.ghost3.preload();
-    // this.ghost4.preload();
-    // this.ghost5.preload();
-    // this.ghost6.preload();
 
     this.ghostsPool = [
       {
@@ -104,7 +89,14 @@ class Game {
       if (ghost.x + ghost.width <= 0) {
         //   remove obstacle
         this.ghosts.splice(index, 1);
-      }
+       }
     });
   }
-}
+
+  // collide(obstacle, player) {
+  //   if (player.y > obstacle.y - obstacle.height && player.y < obstacle.y + obstacle.height) {
+  //       movement = movement * - 1;
+  //     }
+      
+  //   }
+  }

@@ -6,7 +6,6 @@ class Player1 {
     //
     this.x1 = x1;
     this.y1 = y1;
-
   }
 
   preload() {
@@ -22,6 +21,18 @@ class Player1 {
   draw() {
     image(this.img1, this.x1, this.y1, this.width - 10, this.height - 10);
   }
+
+  moveForward() {
+    clear()
+    console.log("move forward");
+    this.y1 -= movement;
+  }
+
+  moveBackwards() {
+    clear()
+    console.log("move backwards");
+    this.y1 += movement;
+  }
 }
 
 class Player2 {
@@ -29,7 +40,7 @@ class Player2 {
     //
     this.x2 = x2;
     this.y2 = y2;
-   
+
     // this.number = number;
   }
 
@@ -46,7 +57,16 @@ class Player2 {
   draw() {
     image(this.img2, this.x2, this.y2, this.width - 20, this.height - 20);
   }
+
+  moveForward() {
+    clear();
+    console.log("move forward");
+    this.y2 -= movement;
+  }
+
+  moveBackwards() {
+    clear()
+    console.log("move backwards");
+    this.y2 += movement;
+  }
 }
-
-
-
