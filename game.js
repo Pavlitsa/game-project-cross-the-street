@@ -75,38 +75,28 @@ class Game {
     this.player2.draw();
 
     if (gameMode === "on") {
-    if (frameCount > 60 && frameCount % 60 === 0) {
-      let randomIndex = Math.floor(Math.random() * this.ghostsPool.length);
-      let randomGhost = this.ghostsPool[randomIndex];
-      // get a random ghost from the ghosts array
-      // pass the random object to the constructor for the Ghost class
+      if (frameCount > 60 && frameCount % 60 === 0) {
+        let randomIndex = Math.floor(Math.random() * this.ghostsPool.length);
+        let randomGhost = this.ghostsPool[randomIndex];
+        // get a random ghost from the ghosts array
+        // pass the random object to the constructor for the Ghost class
 
-      this.ghosts.push(new Ghost(randomGhost));
+        this.ghosts.push(new Ghost(randomGhost));
+      }
+
+      this.ghosts.forEach((ghost, index) => {
+        ghost.draw();
+        if (this.isCollision(this.player1, ghost)) {
+          this.ghosts.splice(index, 1);
+          this.player1.y1 = height - 70;
+        }
+        if (this.isCollision(this.player2, ghost)) {
+          this.ghosts.splice(index, 1);
+          this.player2.y1 = height - 70;
+        }
+      });
     }
-
-    this.ghosts.forEach((ghost, index) => {
-      ghost.draw();
-      if (this.isCollision(this.player1, ghost)) {
-        this.ghosts.splice(index, 1);
-        this.player1.y1 = height - 70;
-      }
-      if (this.isCollision(this.player2, ghost)) {
-        this.ghosts.splice(index, 1);
-        this.player2.y1 = height - 70;
-      }
-
-      // if (ghost.x + ghost.width <= 0) {
-      //   //   remove obstacle
-      //   this.ghosts.splice(index, 1);
-      // }
-
-      // if (this.isCollision(this.player1, ghost)) {
-      //   //  console.log("test");
-      //   this.player1.y1 = height - 70;
-      // }
-    });
   }
-}
 
   isCollision(player, ghost) {
     // stroke("cyan");
@@ -126,8 +116,6 @@ class Game {
     };
 
     let dist = distance(player, ghost);
-    //console.log(dist);
-
     if (dist <= 100) {
       return true;
     }

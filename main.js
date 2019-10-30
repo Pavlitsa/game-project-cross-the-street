@@ -19,8 +19,6 @@ function setup() {
 function draw() {
   game.draw();
   console.log(gameMode);
-
-
   if (game.player1.y1 > height - 40) {
     game.player1.y1 = game.player1.y1 - 50;
   }
@@ -29,9 +27,9 @@ function draw() {
     game.player2.y1 = game.player2.y1 - 50;
   }
 }
-
 function keyPressed() {
   if (keyCode === 81 && game.player1.y1 > 0) {
+    // addScore();
     game.player1.moveForward();
     // console.log("hi");
   } else if (keyCode === 65 && game.player1.y1 < height) {
@@ -39,6 +37,7 @@ function keyPressed() {
   }
 
   if (keyCode === 38 && game.player2.y1 > 0) {
+    // addScore();
     game.player2.moveForward();
   } else if (keyCode === 40 && game.player2.y1 < height) {
     game.player2.moveBackwards();
@@ -46,30 +45,25 @@ function keyPressed() {
 
   if (game.player1.y1 <= height - 650) {
     game.player1.y1 = height - 80;
+    addScore(score1);
   }
 
   if (game.player2.y1 <= height - 650) {
     game.player2.y1 = height - 80;
+    addScore(score2);
   }
 }
 
-function keyReleased() {
-  addScore();
-}
-
-function addScore() {
-  if (game.player1.y1 === height - 80) {
-    score1.innerHTML = Number(score1.innerHTML) + 10;
-  }
-  if (game.player2.y1 === height - 80) {
-    score2.innerHTML = Number(score2.innerHTML) + 10;
-  }
+function addScore(score) {
+  score.innerHTML = Number(score.innerHTML) + 10;
 }
 
 function mousePressed() {
   // if (mouseX > coordinates of start button)) {}
   if (gameMode === "off") {
     gameMode = "on";
-} else {gameMode = "off"}
+  } else {
+    gameMode = "off";
+  }
 }
 const game = new Game();

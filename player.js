@@ -7,17 +7,11 @@ class Player1 {
     this.x1 = x1;
     this.y1 = y1;
     this.width = 100;
-    this.height = 100;
+    this.height = 80;
   }
 
   preload() {
     this.img1 = loadImage("assets/pavi.png");
-  }
-
-  setup() {
-    // this.originalY = this.y;
-    // this.width = this.img.width;
-    // this.height = this.img.height;
   }
 
   draw() {
@@ -25,7 +19,6 @@ class Player1 {
   }
 
   moveForward() {
-    clear();
     console.log("move forward");
     this.y1 -= movement;
   }
@@ -43,7 +36,7 @@ class Player2 {
     this.x1 = x2;
     this.y1 = y2;
     this.width = 100;
-    this.height = 100;
+    this.height = 80;
 
     // this.number = number;
   }
