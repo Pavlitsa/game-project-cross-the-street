@@ -74,7 +74,8 @@ class Game {
     this.player1.draw();
     this.player2.draw();
 
-    if (frameCount > 120 && frameCount % 60 === 0) {
+    if (gameMode === "on") {
+    if (frameCount > 60 && frameCount % 60 === 0) {
       let randomIndex = Math.floor(Math.random() * this.ghostsPool.length);
       let randomGhost = this.ghostsPool[randomIndex];
       // get a random ghost from the ghosts array
@@ -85,18 +86,51 @@ class Game {
 
     this.ghosts.forEach((ghost, index) => {
       ghost.draw();
-
-      if (ghost.x + ghost.width <= 0) {
-        //   remove obstacle
+      if (this.isCollision(this.player1, ghost)) {
         this.ghosts.splice(index, 1);
-       }
+        this.player1.y1 = height - 70;
+      }
+      if (this.isCollision(this.player2, ghost)) {
+        this.ghosts.splice(index, 1);
+        this.player2.y1 = height - 70;
+      }
+
+      // if (ghost.x + ghost.width <= 0) {
+      //   //   remove obstacle
+      //   this.ghosts.splice(index, 1);
+      // }
+
+      // if (this.isCollision(this.player1, ghost)) {
+      //   //  console.log("test");
+      //   this.player1.y1 = height - 70;
+      // }
     });
   }
+}
 
-  // collide(obstacle, player) {
-  //   if (player.y > obstacle.y - obstacle.height && player.y < obstacle.y + obstacle.height) {
-  //       movement = movement * - 1;
-  //     }
-      
-  //   }
+  isCollision(player, ghost) {
+    // stroke("cyan");
+    // noFill();
+    // circle(player.x1 + player.width / 2, player.y1 + player.height / 2, 100);
+    // stroke("magenta");
+    // noFill();
+    // circle(ghost.x + ghost.width / 2, ghost.y + ghost.height / 2, 100);
+
+    // console.log(ghost.width, ghost.height, player.width, player.height);
+
+    const distance = (player, ghost) => {
+      return Math.sqrt(
+        (player.x1 + player.width / 2 - (ghost.x + ghost.width / 2)) ** 2 +
+          (player.y1 + player.height / 2 - (ghost.y + ghost.height / 2)) ** 2
+      );
+    };
+
+    let dist = distance(player, ghost);
+    //console.log(dist);
+
+    if (dist <= 100) {
+      return true;
+    }
+    return false;
   }
+}

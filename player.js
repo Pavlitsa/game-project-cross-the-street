@@ -6,6 +6,8 @@ class Player1 {
     //
     this.x1 = x1;
     this.y1 = y1;
+    this.width = 100;
+    this.height = 100;
   }
 
   preload() {
@@ -19,17 +21,17 @@ class Player1 {
   }
 
   draw() {
-    image(this.img1, this.x1, this.y1, this.width - 10, this.height - 10);
+    image(this.img1, this.x1, this.y1, this.width, this.height);
   }
 
   moveForward() {
-    clear()
+    clear();
     console.log("move forward");
     this.y1 -= movement;
   }
 
   moveBackwards() {
-    clear()
+    clear();
     console.log("move backwards");
     this.y1 += movement;
   }
@@ -38,8 +40,10 @@ class Player1 {
 class Player2 {
   constructor(x2, y2) {
     //
-    this.x2 = x2;
-    this.y2 = y2;
+    this.x1 = x2;
+    this.y1 = y2;
+    this.width = 100;
+    this.height = 100;
 
     // this.number = number;
   }
@@ -55,18 +59,18 @@ class Player2 {
   }
 
   draw() {
-    image(this.img2, this.x2, this.y2, this.width - 20, this.height - 20);
+    image(this.img2, this.x1, this.y1, this.width, this.height);
   }
 
   moveForward() {
     clear();
     console.log("move forward");
-    this.y2 -= movement;
+    this.y1 -= movement;
   }
 
   moveBackwards() {
-    clear()
+    clear();
     console.log("move backwards");
-    this.y2 += movement;
+    this.y1 += movement;
   }
 }

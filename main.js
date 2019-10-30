@@ -3,6 +3,7 @@ const height = 770;
 const movement = 20;
 const score1 = document.querySelector("#score1");
 const score2 = document.querySelector("#score2");
+let gameMode = "off";
 
 function preload() {
   console.log("preload");
@@ -17,15 +18,15 @@ function setup() {
 
 function draw() {
   game.draw();
-  // player1.draw();
-  // player2.draw();
+  console.log(gameMode);
+
 
   if (game.player1.y1 > height - 40) {
     game.player1.y1 = game.player1.y1 - 50;
   }
 
-  if (game.player2.y2 > height - 40) {
-    game.player2.y2 = game.player2.y2 - 50;
+  if (game.player2.y1 > height - 40) {
+    game.player2.y1 = game.player2.y1 - 50;
   }
 }
 
@@ -37,18 +38,18 @@ function keyPressed() {
     game.player1.moveBackwards();
   }
 
-  if (keyCode === 38 && game.player2.y2 > 0) {
+  if (keyCode === 38 && game.player2.y1 > 0) {
     game.player2.moveForward();
-  } else if (keyCode === 40 && game.player2.y2 < height) {
+  } else if (keyCode === 40 && game.player2.y1 < height) {
     game.player2.moveBackwards();
   }
 
   if (game.player1.y1 <= height - 650) {
-    game.player1.y1 = height - 70;
+    game.player1.y1 = height - 80;
   }
 
-  if (game.player2.y2 <= height - 650) {
-    game.player2.y2 = height - 70;
+  if (game.player2.y1 <= height - 650) {
+    game.player2.y1 = height - 80;
   }
 }
 
@@ -57,12 +58,18 @@ function keyReleased() {
 }
 
 function addScore() {
-  if (game.player1.y1 === height - 70) {
+  if (game.player1.y1 === height - 80) {
     score1.innerHTML = Number(score1.innerHTML) + 10;
   }
-  if (game.player2.y2 === height - 70) {
+  if (game.player2.y1 === height - 80) {
     score2.innerHTML = Number(score2.innerHTML) + 10;
   }
 }
 
+function mousePressed() {
+  // if (mouseX > coordinates of start button)) {}
+  if (gameMode === "off") {
+    gameMode = "on";
+} else {gameMode = "off"}
+}
 const game = new Game();
