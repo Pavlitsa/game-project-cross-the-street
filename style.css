@@ -3,9 +3,17 @@ body {
   margin: 0;
 }
 
+#heading-1 {
+  font-size: 50px;
+}
+
+#enter {
+  font-size: 50px;
+}
+
 .header {
   color: #eb6123;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Creepster', cursive;
   display: flex;
   justify-content: space-around;
 }
@@ -20,7 +28,7 @@ body {
 
 
 .start {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Creepster', cursive;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -33,7 +41,7 @@ body {
 }
 
 #gameover {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Creepster', cursive;
   position: absolute;
   width: 100vw;
   height: 100vh;

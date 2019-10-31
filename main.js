@@ -4,7 +4,6 @@ const movement = 20;
 const score1 = document.querySelector("#score1");
 const score2 = document.querySelector("#score2");
 const startPage = document.querySelector(".start");
-// const gameOver = document.querySelector(".gameOver");
 let gameMode = "off";
 let mainSound;
 
@@ -12,19 +11,15 @@ function preload() {
   console.log("preload");
   introSound = loadSound("assets/creepy-whistling-sound-effect.mp3");
   game.preload();
-  //preload sound here
 }
 
 function setup() {
-  //   console.log("setup");
   let canvas = createCanvas(width, height);
   let container = document.querySelector(".container");
   canvas.parent("container");
-  //console.log(canvas);
-  //   game.setup();
   console.log(container);
-  introSound.setVolume(0.5); //change volume
-  introSound.loop();
+  introSound.setVolume(0.0); //change volume
+  introSound.loop(); // loop sound
 }
 
 let gameOver = false;
@@ -35,8 +30,9 @@ function draw() {
     document.querySelector("#gameover").style.visibility = "visible";
     document.querySelector(".player-won").innerHTML = `${winner} won !!!`;
   }
+
   game.draw();
-  // console.log(gameMode);
+
   if (game.player1.y1 > height - 40) {
     game.player1.y1 = game.player1.y1 - 50;
   }
@@ -46,7 +42,7 @@ function draw() {
   }
 
   if (game.player1.x1 > width - 40) {
-    game.player1.x1 = game.player1.x1 - 50; //to fix tomorrow / if player is between 0 and screen width - width of player
+    game.player1.x1 = game.player1.x1 - 50;
   }
 
   if (game.player2.x1 > width - 40) {
@@ -77,7 +73,7 @@ function keyPressed() {
 
   if (keyCode === 69 && game.player1.x1 > 0) {
     game.player1.moveRight();
-  } else if (keyCode === 81 && game.player1.x1 < width) {
+  } else if (keyCode === 81 && game.player1.x1 > 0) {
     game.player1.moveLeft();
   }
 
