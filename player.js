@@ -8,6 +8,7 @@ class Player1 {
     this.y1 = y1;
     this.width = 100;
     this.height = 80;
+    this.name = "Pavi";
   }
 
   preload() {
@@ -19,14 +20,27 @@ class Player1 {
   }
 
   moveForward() {
-    console.log("move forward");
+    //console.log("move forward");
+    clear();
     this.y1 -= movement;
   }
 
   moveBackwards() {
     clear();
-    console.log("move backwards");
+    //console.log("move backwards");
     this.y1 += movement;
+  }
+
+  moveRight() {
+    clear();
+    //console.log("more right");
+    this.x1 += movement;
+  }
+
+  moveLeft() {
+    clear();
+    //console.log("more right");
+    this.x1 -= movement;
   }
 }
 
@@ -37,6 +51,7 @@ class Player2 {
     this.y1 = y2;
     this.width = 100;
     this.height = 80;
+    this.name = "Nino";
 
     // this.number = number;
   }
@@ -57,13 +72,26 @@ class Player2 {
 
   moveForward() {
     clear();
-    console.log("move forward");
+    //console.log("move forward");
     this.y1 -= movement;
   }
 
   moveBackwards() {
     clear();
-    console.log("move backwards");
+    //console.log("move backwards");
     this.y1 += movement;
   }
+
+  moveRight() {
+    clear();
+    //console.log("more right");
+    this.x1 += movement;
+  }
+
+  moveLeft() {
+    clear();
+    //console.log("more right");
+    this.x1 -= movement;
+  }
+
 }

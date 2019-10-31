@@ -13,12 +13,31 @@
     />
   </head>
   <body>
-    <div>
-      <h2 id="player-1">Player 1: <span id="score1">0</span></h2>
-      <h2>Welcome to Ghost Town</h2>
-      <h2 id="player-2">Player 2: <span id="score2">0</span></h2>
+    <div class="start">
+      <h1>Welcome to Ghost Town</h1>
+      <br />
+      <p>Cross the street to escape the cemetery</p>
+      <p>before the ghosts grab you and bring you back in!</p>
+      <br />
+      <h1>Press 'Enter' to Start the game</h1>
+      <h2>Press 'Escape' to Stop the game</h2>
+      <h2>Press 'Space' to Restart</h2>
     </div>
 
+    <div class="header">
+      <h2 id="player-1">Pavi: <span id="score1">0</span></h2>
+      <!-- <h2 id="welcome">Welcome to Ghost Town</h2> -->
+      <h2 id="player-2">Nino: <span id="score2">0</span></h2>
+    </div>
+
+    <div id="gameover">
+      <h1>Game Over</h1>
+      <h1 class="player-won"></h1>
+    </div>
+    <!-- <span id="reset">Escape the cemetery to save your life!</span> -->
+
+    <script src="p5/addons/p5.play.js"></script>
+    <script src="p5/addons/p5.sound.js"></script>
     <script src="obstacle.js"></script>
     <script src="player.js"></script>
     <script src="background.js"></script>

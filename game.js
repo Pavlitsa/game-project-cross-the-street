@@ -19,7 +19,7 @@ class Game {
         height: 70,
         img: loadImage("assets/witch.png"),
         x: width - 70,
-        y: height - 580,
+        y: height - 555,
         speed: -5
       },
 
@@ -28,7 +28,7 @@ class Game {
         height: 70,
         img: loadImage("assets/cute-ghost.png"),
         x: width - 70,
-        y: height - 400,
+        y: height - 410,
         speed: -3
       },
 
@@ -37,7 +37,7 @@ class Game {
         height: 70,
         img: loadImage("assets/scary-ghost.png"),
         x: width - 70,
-        y: height - 220,
+        y: height - 260,
         speed: -9
       },
 
@@ -46,7 +46,7 @@ class Game {
         height: 110,
         img: loadImage("assets/scared-ghost.png"),
         x: 0,
-        y: height - 490,
+        y: height - 500,
         speed: +8
       },
       {
@@ -54,7 +54,7 @@ class Game {
         height: 140,
         img: loadImage("assets/scary-pumpkin.png"),
         x: 0,
-        y: height - 330,
+        y: height - 360,
         speed: +6
       },
 
@@ -89,10 +89,13 @@ class Game {
         if (this.isCollision(this.player1, ghost)) {
           this.ghosts.splice(index, 1);
           this.player1.y1 = height - 70;
+          score1.innerHTML -= 5;
+    
         }
         if (this.isCollision(this.player2, ghost)) {
           this.ghosts.splice(index, 1);
           this.player2.y1 = height - 70;
+          score2.innerHTML -= 5;
         }
       });
     }
@@ -116,7 +119,7 @@ class Game {
     };
 
     let dist = distance(player, ghost);
-    if (dist <= 100) {
+    if (dist <= 80) {
       return true;
     }
     return false;
