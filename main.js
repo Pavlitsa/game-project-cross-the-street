@@ -1,5 +1,5 @@
-const windowWidth = 1500;
-const windowHeight = 850;
+const width = 1500;
+const height = 850;
 const movement = 20;
 const score1 = document.querySelector("#score1");
 const score2 = document.querySelector("#score2");
@@ -17,7 +17,7 @@ function preload() {
 
 function setup() {
   //   console.log("setup");
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(width, height);
   let container = document.querySelector(".container");
   canvas.parent("container");
   //console.log(canvas);
@@ -37,19 +37,19 @@ function draw() {
   }
   game.draw();
   // console.log(gameMode);
-  if (game.player1.y1 > windowHeight - 40) {
+  if (game.player1.y1 > height - 40) {
     game.player1.y1 = game.player1.y1 - 50;
   }
 
-  if (game.player2.y1 > windowHeight - 40) {
+  if (game.player2.y1 > height - 40) {
     game.player2.y1 = game.player2.y1 - 50;
   }
 
-  if (game.player1.x1 > windowWidth - 40) {
-    game.player1.x1 = game.player1.x1 - 50; //to fix tomorrow / if player is between 0 and screen windowWidth - windowWidth of player
+  if (game.player1.x1 > width - 40) {
+    game.player1.x1 = game.player1.x1 - 50; //to fix tomorrow / if player is between 0 and screen width - width of player
   }
 
-  if (game.player2.x1 > windowWidth - 40) {
+  if (game.player2.x1 > width - 40) {
     game.player2.x1 = game.player2.x1 - 50;
   }
 }
@@ -65,25 +65,25 @@ function keyPressed() {
 
   if (keyCode === 87 && game.player1.y1 > 0) {
     game.player1.moveForward();
-  } else if (keyCode === 83 && game.player1.y1 < windowHeight) {
+  } else if (keyCode === 83 && game.player1.y1 < height) {
     game.player1.moveBackwards();
   }
 
   if (keyCode === 38 && game.player2.y1 > 0) {
     game.player2.moveForward();
-  } else if (keyCode === 40 && game.player2.y1 < windowHeight) {
+  } else if (keyCode === 40 && game.player2.y1 < height) {
     game.player2.moveBackwards();
   }
 
   if (keyCode === 69 && game.player1.x1 > 0) {
     game.player1.moveRight();
-  } else if (keyCode === 81 && game.player1.x1 < windowWidth) {
+  } else if (keyCode === 81 && game.player1.x1 < width) {
     game.player1.moveLeft();
   }
 
   if (keyCode === 39 && game.player2.x1 > 0) {
     game.player2.moveRight();
-  } else if (keyCode === 37 && game.player2.x1 < windowWidth) {
+  } else if (keyCode === 37 && game.player2.x1 < width) {
     game.player2.moveLeft();
   }
 
@@ -94,17 +94,17 @@ function keyPressed() {
     document.querySelector("#gameover").style.visibility = "hidden";
     score1.innerHTML = 0;
     score2.innerHTML = 0;
-    game.player1.y1 = windowHeight - 70;
-    game.player2.y1 = windowHeight - 70;
+    game.player1.y1 = height - 70;
+    game.player2.y1 = height - 70;
   }
 
-  if (game.player1.y1 <= windowHeight - 650) {
-    game.player1.y1 = windowHeight - 80;
+  if (game.player1.y1 <= height - 650) {
+    game.player1.y1 = height - 80;
     addScore(score1, game.player1);
   }
 
-  if (game.player2.y1 <= windowHeight - 650) {
-    game.player2.y1 = windowHeight - 80;
+  if (game.player2.y1 <= height - 650) {
+    game.player2.y1 = height - 80;
     addScore(score2, game.player2);
   }
 

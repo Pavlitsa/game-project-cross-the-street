@@ -93,5 +93,4 @@ class Player2 {
     //console.log("more right");
     this.x1 -= movement;
   }
-
 }
