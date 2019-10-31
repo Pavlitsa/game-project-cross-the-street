@@ -10,6 +10,11 @@
   justify-content: space-around;
 }
 
+#container {
+  width: 100vw;
+  height: 100vh;
+}
+
 /* #reset {
   font-size: 20px;
   color: #eb6123;

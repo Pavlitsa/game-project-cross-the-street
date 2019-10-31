@@ -18,7 +18,6 @@ class Background {
     this.bgPumpkins = loadImage("assets/pumpkins.png");
     this.bgBottom = loadImage("assets/cemetery.png");
     this.bgLanes = loadImage("assets/highway.png");
-    
   }
 
   draw() {
@@ -26,7 +25,7 @@ class Background {
     image(this.bgTown, this.xTown + 650, 0, 900, 190);
 
     for (let i = 183; i < 550; i += 170) {
-      image(this.bgLanes, this.xLanes, i, width, 290);
+      image(this.bgLanes, this.xLanes, i, windowWidth, 290);
     }
 
     image(this.bgBottom, this.xBottom, 675, 300, 175);
