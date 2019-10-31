@@ -21,19 +21,22 @@ class Background {
   }
 
   draw() {
-    image(this.bgTown, this.xTown, 0, 700, 190);
-    image(this.bgTown, this.xTown + 650, 0, 900, 190);
+          image(this.bgTown, this.xTown, 0, width / 2, 190);
+    image(this.bgTown, width / 2, 0, width / 2, 190);
 
-    for (let i = 183; i < 550; i += 170) {
-      image(this.bgLanes, this.xLanes, i, width, 290);
+    // for (let i = 0; i <= window.innerHeight; i++) {
+    image(this.bgLanes, this.xLanes, 190, width, window.innerHeight - 190);
+    // }
+
+    for (let i = 0; i < 5; i++) {
+      image(this.bgBottom, i * width / 5, window.innerHeight - 170, width / 5, 175);
     }
 
-    image(this.bgBottom, this.xBottom, 675, 300, 175);
-    image(this.bgBottom, this.xBottom + 300, 685, 400, 175);
-    image(this.bgBottom, this.xBottom + 700, 685, 300, 175);
-    image(this.bgBottom, this.xBottom + 800, 685, 500, 175);
-    image(this.bgBottom, this.xBottom + 1200, 685, 500, 175);
-
+    // image(this.bgBottom, this.xBottom + 300, 685, 400, 175);
+    // image(this.bgBottom, this.xBottom + 700, 685, 300, 175);
+    // image(this.bgBottom, this.xBottom + 800, 685, 500, 175);
+    // image(this.bgBottom, this.xBottom + 1200, 685, 500, 175);
+    
     image(this.bgPumpkins, this.xBottom + 20, 790, 170, 50);
   }
 }

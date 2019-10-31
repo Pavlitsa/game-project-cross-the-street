@@ -1,5 +1,5 @@
-const width = 1500;
-const height = 850;
+const width = window.innerWidth;
+const height = window.innerHeight;
 const movement = 20;
 const score1 = document.querySelector("#score1");
 const score2 = document.querySelector("#score2");
