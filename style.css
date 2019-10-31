@@ -1,3 +1,8 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .header {
   color: #eb6123;
   font-family: "Permanent Marker", cursive;
@@ -13,21 +18,10 @@
   justify-content: center;
 }
 
-/* #reset {
-  font-size: 20px;
-  color: #eb6123;
-  font-family: "Permanent Marker", cursive;
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-  margin-bottom: 0;
-} */
 
 .start {
   font-family: "Permanent Marker", cursive;
   position: absolute;
-  /*top: 10vh;
-  left: 45vh;*/
   width: 100vw;
   height: 100vh;
   visibility: visible;
@@ -36,7 +30,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*padding: 140px 100px;*/
 }
 
 #gameover {
@@ -57,35 +50,9 @@
   font-size: 20px;
 }
 
-/* .game-over {
- position: absolute;
-  top: 30vh;
-  left: 60vh;
-  visibility: visible;
-  background-color: rgba(255,250,250, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 120px 90px;
-} */
-
 .header {
   position: absolute;
   width: 100vw;
   visibility: visible;
 }
 
-/* #player-1, #player-2 {
-    text-decoration: underline;
-  } */
-
-/* #start {
-    color: #eb6123;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    top: 30%;
-    font-size: 60px;
-    text-align: center;
-  } */
