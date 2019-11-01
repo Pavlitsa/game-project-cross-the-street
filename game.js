@@ -19,7 +19,7 @@ class Game {
         height: 80,
         img: loadImage("assets/witch.png"),
         x: width - 70,
-        y: height - 580,
+        y: height - 550,
         speed: -5
       },
 
