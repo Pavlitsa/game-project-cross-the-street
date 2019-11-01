@@ -89,11 +89,13 @@ class Game {
       this.ghosts.forEach((ghost, index) => {
         ghost.draw();
         if (this.isCollision(this.player1, ghost)) {
+          failSound.play();
           this.ghosts.splice(index, 1);
           this.player1.y1 = height - 70;
           score1.innerHTML -= 5;
         }
         if (this.isCollision(this.player2, ghost)) {
+          failSound.play();
           this.ghosts.splice(index, 1);
           this.player2.y1 = height - 70;
           score2.innerHTML -= 5;
@@ -110,7 +112,6 @@ class Game {
     // noFill();
     // circle(ghost.x + ghost.width / 2, ghost.y + ghost.height / 2, 100);
 
-  
     const distance = (player, ghost) => {
       return Math.sqrt(
         (player.x1 + player.width / 2 - (ghost.x + ghost.width / 2)) ** 2 +
@@ -118,7 +119,7 @@ class Game {
       );
     };
 
-      // defining the specific distance between player and ghost depending on which the collision happens
+    // defining the specific distance between player and ghost depending on which the collision happens
 
     let dist = distance(player, ghost);
     if (dist <= 80) {
