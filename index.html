@@ -10,25 +10,31 @@
     <link href="https://fonts.googleapis.com/css?family=Creepster&display=swap" rel="stylesheet">
   </head>
   <body>
+
+    <!-- start page -->
     <div class="start">
       <h1 id="heading-1">Welcome to Ghost Town</h1>
-      <h1>Cross the street to escape the cemetery</h1>
-      <h1>before the ghosts grab you and bring you back in!</h1>
-      <h1 id="enter">Press 'Enter' to Start the game</h1>
-      <h2>Press 'Escape' to Stop the game</h2>
-      <h2>Press 'Space' to Restart</h2>
+      <h1 id="instructions">Cross the street to escape the cemetery without being caught by the ghosts!</h1>
+      <h1 id="enter">Press <span id="enter-word">'Enter'</span> to Start the Game</h1>
+      <h2>Press <span id="escape">'Escape'</span> to Stop the Game and <span id="space">'Space'</span> to Restart</h2>
+      <h1>Pavi: Up. 'W', Down. 'S', Left. 'Q', Right. 'E'</h1>
+      <h1>Nino: Up. 'Arrow Up', Down. 'Arrow Down', Left. 'Arrow Left', Right. 'Arrow Right'</h1>
+
     </div>
+    
+    <!-- score -->
     <div class="header">
       <h2 id="player-1">Pavi: <span id="score1">0</span></h2>
-      <!-- <h2 id="welcome">Welcome to Ghost Town</h2> -->
       <h2 id="player-2">Nino: <span id="score2">0</span></h2>
     </div>
 
+    <!-- game over page -->
     <div id="gameover">
       <h1>Game Over</h1>
       <h1 class="player-won"></h1>
     </div>
-    <!-- <span id="reset">Escape the cemetery to save your life!</span> -->
+  
+    <!-- The canvas has been passed inside the div with DOM -->
     <div id="container"></div>
 
     <script src="./p5/addons/p5.play.js"></script>

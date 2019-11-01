@@ -1,6 +1,5 @@
 class Game {
   constructor() {
-    //console.log("game constructor");
     this.background = new Background();
     this.player1 = new Player1(300, height - 65);
     this.player2 = new Player2(1100, height - 75);
@@ -8,33 +7,34 @@ class Game {
   }
 
   preload() {
-    // console.log("game preload");
     this.background.preload();
     this.player1.preload();
     this.player2.preload();
 
+    // create an array of objects in order to use OOP and have one class for all ghosts
+
     this.ghostsPool = [
       {
-        width: 70,
-        height: 70,
+        width: 90,
+        height: 90,
         img: loadImage("assets/witch.png"),
         x: width - 70,
-        y: height - 555,
+        y: height - 650,
         speed: -5
       },
 
       {
-        width: 70,
-        height: 70,
+        width: 90,
+        height: 90,
         img: loadImage("assets/cute-ghost.png"),
         x: width - 70,
-        y: height - 410,
-        speed: -3
+        y: height - 440,
+        speed: -4
       },
 
       {
-        width: 70,
-        height: 70,
+        width: 90,
+        height: 90,
         img: loadImage("assets/scary-ghost.png"),
         x: width - 70,
         y: height - 260,
@@ -42,28 +42,28 @@ class Game {
       },
 
       {
-        width: 110,
-        height: 110,
+        width: 150,
+        height: 150,
         img: loadImage("assets/scared-ghost.png"),
         x: 0,
-        y: height - 500,
+        y: height - 560,
         speed: +8
       },
       {
-        width: 140,
-        height: 140,
+        width: 180,
+        height: 180,
         img: loadImage("assets/scary-pumpkin.png"),
         x: 0,
-        y: height - 360,
+        y: height - 400,
         speed: +6
       },
 
       {
-        width: 90,
-        height: 90,
+        width: 100,
+        height: 100,
         img: loadImage("assets/knife-ghost.png"),
         x: 0,
-        y: height - 160,
+        y: height - 170,
         speed: +4
       }
     ];
@@ -84,6 +84,8 @@ class Game {
         this.ghosts.push(new Ghost(randomGhost));
       }
 
+      // player and ghosts collide, player returns to original position
+      // the score changes by -5 points each time
       this.ghosts.forEach((ghost, index) => {
         ghost.draw();
         if (this.isCollision(this.player1, ghost)) {
@@ -108,14 +110,15 @@ class Game {
     // noFill();
     // circle(ghost.x + ghost.width / 2, ghost.y + ghost.height / 2, 100);
 
-    // console.log(ghost.width, ghost.height, player.width, player.height);
-
+  
     const distance = (player, ghost) => {
       return Math.sqrt(
         (player.x1 + player.width / 2 - (ghost.x + ghost.width / 2)) ** 2 +
           (player.y1 + player.height / 2 - (ghost.y + ghost.height / 2)) ** 2
       );
     };
+
+      // defining the specific distance between player and ghost depending on which the collision happens
 
     let dist = distance(player, ghost);
     if (dist <= 80) {

@@ -19,6 +19,8 @@ class Player1 {
     image(this.img1, this.x1, this.y1, this.width, this.height);
   }
 
+  // set movements for player 1
+  
   moveForward() {
     //console.log("move forward");
     clear();
@@ -60,37 +62,29 @@ class Player2 {
     this.img2 = loadImage("assets/nitsa.png");
   }
 
-  setup() {
-    // this.originalY = this.y;
-    // this.width = this.img.width;
-    // this.height = this.img.height;
-  }
-
   draw() {
     image(this.img2, this.x1, this.y1, this.width, this.height);
   }
 
+  //set movements for player 2
+
   moveForward() {
     clear();
-    //console.log("move forward");
     this.y1 -= movement;
   }
 
   moveBackwards() {
     clear();
-    //console.log("move backwards");
     this.y1 += movement;
   }
 
   moveRight() {
     clear();
-    //console.log("more right");
     this.x1 += movement;
   }
 
   moveLeft() {
     clear();
-    //console.log("more right");
     this.x1 -= movement;
   }
 }

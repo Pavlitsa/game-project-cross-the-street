@@ -5,11 +5,13 @@ const score1 = document.querySelector("#score1");
 const score2 = document.querySelector("#score2");
 const startPage = document.querySelector(".start");
 let gameMode = "off";
-let mainSound;
+let introSound;
+let pointsSound;
 
 function preload() {
   console.log("preload");
-  introSound = loadSound("assets/creepy-whistling-sound-effect.mp3");
+  introSound = loadSound("assets/time-warp.mp3");
+  pointsSound = loadSound("assets/cheering.mp3");
   game.preload();
 }
 
@@ -33,6 +35,7 @@ function draw() {
 
   game.draw();
 
+  //set borders for the players
   if (game.player1.y1 > height - 40) {
     game.player1.y1 = game.player1.y1 - 50;
   }
@@ -50,40 +53,42 @@ function draw() {
   }
 }
 
+// all key functions 
 function keyPressed() {
-  if (keyCode === 13) {
+  if (keyCode === 13) {  // enter
     gameMode = "on";
     startPage.style.visibility = "hidden";
-  } else if (keyCode === 27) {
+  } else if (keyCode === 27) { // escape
     gameMode = "off";
     startPage.style.visibility = "hidden";
   }
 
-  if (keyCode === 87 && game.player1.y1 > 0) {
+  if (keyCode === 87 && game.player1.y1 > 0) { // 'W'
     game.player1.moveForward();
-  } else if (keyCode === 83 && game.player1.y1 < height) {
+  } else if (keyCode === 83 && game.player1.y1 < height) { // 'S'
     game.player1.moveBackwards();
   }
 
-  if (keyCode === 38 && game.player2.y1 > 0) {
+  if (keyCode === 38 && game.player2.y1 > 0) { // Arrow Up
     game.player2.moveForward();
-  } else if (keyCode === 40 && game.player2.y1 < height) {
+  } else if (keyCode === 40 && game.player2.y1 < height) { // Arrow Down
     game.player2.moveBackwards();
   }
 
-  if (keyCode === 69 && game.player1.x1 > 0) {
+  if (keyCode === 69 && game.player1.x1 > 0) { // 'E'
     game.player1.moveRight();
-  } else if (keyCode === 81 && game.player1.x1 > 0) {
+  } else if (keyCode === 81 && game.player1.x1 > 0) { // 'Q'
     game.player1.moveLeft();
   }
 
-  if (keyCode === 39 && game.player2.x1 > 0) {
+  if (keyCode === 39 && game.player2.x1 > 0) { // Arrow Right
     game.player2.moveRight();
-  } else if (keyCode === 37 && game.player2.x1 < width) {
+  } else if (keyCode === 37 && game.player2.x1 < width) { // Arrow Left
     game.player2.moveLeft();
   }
 
-  // Press 'R' to reset the score and return players to original position when the game is over
+  // When the game is over, Press 'R' to reset the score and return players to original position 
+  
   if (gameOver && keyCode === 82) {
     gameOver = false;
     gameMode = "on";
@@ -94,24 +99,33 @@ function keyPressed() {
     game.player2.y1 = height - 70;
   }
 
+  // Add score when players reach a specific height of the canvas
+
   if (game.player1.y1 <= height - 650) {
     game.player1.y1 = height - 80;
     addScore(score1, game.player1);
+    pointsSound.play();
   }
 
   if (game.player2.y1 <= height - 650) {
     game.player2.y1 = height - 80;
     addScore(score2, game.player2);
+    pointsSound.play();
   }
+
+// 'Space' to reload the page
 
   if (keyCode === 32) {
     window.location.reload();
   }
 }
 
+
+// Add score function and end game when one of the two players reaches a certain score
+
 function addScore(score, player) {
   let s = Number(score.innerHTML) + 10;
-  if (s >= 100) {
+  if (s >= 50) {
     console.log(`${player.name} won!`);
     winner = player.name;
     gameOver = true;

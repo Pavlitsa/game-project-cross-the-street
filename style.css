@@ -3,8 +3,27 @@ body {
   margin: 0;
 }
 
+.header {
+  position: absolute;
+  width: 100vw;
+  visibility: visible;
+}
+
 #heading-1 {
   font-size: 50px;
+}
+
+#enter-word {
+  font-size: 60px;
+}
+
+#instructions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#escape, #space {
+  font-size: 30px;
 }
 
 #enter {
@@ -29,6 +48,7 @@ body {
 
 .start {
   font-family: 'Creepster', cursive;
+  color: #330033 ;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -42,6 +62,7 @@ body {
 
 #gameover {
   font-family: 'Creepster', cursive;
+  color: #330033 ;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -58,9 +79,4 @@ body {
   font-size: 20px;
 }
 
-.header {
-  position: absolute;
-  width: 100vw;
-  visibility: visible;
-}
 
