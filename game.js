@@ -15,17 +15,17 @@ class Game {
 
     this.ghostsPool = [
       {
-        width: 90,
-        height: 90,
+        width: 80,
+        height: 80,
         img: loadImage("assets/witch.png"),
         x: width - 70,
-        y: height - 650,
+        y: height - 580,
         speed: -5
       },
 
       {
-        width: 90,
-        height: 90,
+        width: 70,
+        height: 70,
         img: loadImage("assets/cute-ghost.png"),
         x: width - 70,
         y: height - 440,
@@ -33,8 +33,8 @@ class Game {
       },
 
       {
-        width: 90,
-        height: 90,
+        width: 80,
+        height: 80,
         img: loadImage("assets/scary-ghost.png"),
         x: width - 70,
         y: height - 260,
@@ -50,11 +50,11 @@ class Game {
         speed: +8
       },
       {
-        width: 180,
-        height: 180,
+        width: 150,
+        height: 150,
         img: loadImage("assets/scary-pumpkin.png"),
         x: 0,
-        y: height - 400,
+        y: height - 380,
         speed: +6
       },
 
